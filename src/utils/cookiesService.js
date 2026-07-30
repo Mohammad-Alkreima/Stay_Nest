@@ -1,38 +1,26 @@
+const isProduction = process.env.NODE_ENV === 'production';
+
 class CookiesService {
     setAccessToken = (res, value) => {
         res.cookie("accessToken", value, {
-            httpOnly: true, // http
-            secure: false, // https
-            sameSite: "lax",
-            maxAge: 60 * 60 * 1000 //  1h
+            httpOnly: true,
+            secure: isProduction,
+            sameSite: isProduction ? "none" : "lax",
+            maxAge: 60 * 60 * 1000
         })
     }
 
     setRefreshToken = (res, value) => {
         res.cookie("refreshToken", value, {
-            httpOnly: true, // http
-            secure: false, // https
-            sameSite: "lax",
-            maxAge: 7 * 24 * 60 * 60 * 1000 //  7d
+            httpOnly: true,
+            secure: isProduction,
+            sameSite: isProduction ? "none" : "lax",
+            maxAge: 7 * 24 * 60 * 60 * 1000
         })
     }
 
-    getAccessToken = (req) => {
-        return req.cookies["accessToken"]
-    }
-
-    getRefreshToken = (req) => {
-        return req.cookies["refreshToken"]
-    }
-
-    clearData = (res, key) => {
-        res.clearCookie(key)
-    }
-
     clearTokens = (res) => {
-        this.clearData(res, "accessToken");
-        this.clearData(res, "refreshToken");
+        res.clearCookie("accessToken", { secure: isProduction, sameSite: isProduction ? "none" : "lax" });
+        res.clearCookie("refreshToken", { secure: isProduction, sameSite: isProduction ? "none" : "lax" });
     }
 }
-
-module.exports = new CookiesService();
