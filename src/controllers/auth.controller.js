@@ -236,7 +236,7 @@ class AuthController {
         cookiesService.setAccessToken(res, token);
         cookiesService.setRefreshToken(res, refreshToken);
 
-        res.redirect('https://stay-nest-1.onrender.com/api/v1/auth/profile');
+        res.redirect(process.env.FRONTEND_URL || 'http://localhost:5173');
     };
 }
 

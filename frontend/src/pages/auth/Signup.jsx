@@ -59,7 +59,7 @@ export default function Signup() {
 
         <div className="mt-4 text-center">
           <a
-            href="/api/v1/auth/google"
+            href={(import.meta.env.VITE_API_URL || '/api/v1') + '/auth/google'}
             className="inline-flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
           >
             Continue with Google
