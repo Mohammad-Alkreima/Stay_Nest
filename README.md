@@ -370,7 +370,7 @@ app.set("onlineUsers", onlineUsers);
 On the frontend, connect and register the user's ID:
 
 ```js
-const socket = io("https://stay-nest-1.onrender.com");
+const socket = io("http;//localhost:3000");
 
 // After login, register the user's ID to receive notifications
 socket.emit("register", userId);

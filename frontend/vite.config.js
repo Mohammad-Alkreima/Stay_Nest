@@ -8,11 +8,11 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'https://stay-nest-1.onrender.com',
+        target: 'http://localhost:3000',
         changeOrigin: true,
       },
       '/socket.io': {
-        target: 'https://stay-nest-1.onrender.com',
+        target: 'http://localhost:3000',
         ws: true,
         changeOrigin: true,
       },
