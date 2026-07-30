@@ -19,9 +19,21 @@ class CookiesService {
         })
     }
 
+    getAccessToken = (req) => {
+        return req.cookies["accessToken"]
+    }
+
+    getRefreshToken = (req) => {
+        return req.cookies["refreshToken"]
+    }
+
+    clearData = (res, key) => {
+        res.clearCookie(key, { secure: isProduction, sameSite: isProduction ? "none" : "lax" })
+    }
+
     clearTokens = (res) => {
-        res.clearCookie("accessToken", { secure: isProduction, sameSite: isProduction ? "none" : "lax" });
-        res.clearCookie("refreshToken", { secure: isProduction, sameSite: isProduction ? "none" : "lax" });
+        this.clearData(res, "accessToken");
+        this.clearData(res, "refreshToken");
     }
 }
 
