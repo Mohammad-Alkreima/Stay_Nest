@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import Input, { Select } from '../../components/ui/Input';
 import Button from '../../components/ui/Button';
@@ -7,10 +7,12 @@ import Card from '../../components/ui/Card';
 
 export default function Signup() {
   const { signup } = useAuth();
-  const navigate = useNavigate();
   const [form, setForm] = useState({ name: '', email: '', password: '', role: 'guest', phone: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [done, setDone] = useState(false);
+
+  if (done) return <Navigate to="/login" replace />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,10 +21,9 @@ export default function Signup() {
     try {
       const role = form.role || 'guest';
       await signup({ ...form, role });
-      navigate('/login', { replace: true });
+      setDone(true);
     } catch (err) {
       setError(err.message);
-    } finally {
       setLoading(false);
     }
   };

@@ -33,6 +33,7 @@ export function AuthProvider({ children }) {
 
   const signup = async (data) => {
     await authApi.signup(data);
+    return true;
   };
 
   const logout = async () => {
