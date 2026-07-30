@@ -2,6 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const notFound = require("./middlewares/notFound");
 const errorHandler = require("./middlewares/errorHandler");
 const cookies = require("cookie-parser");
@@ -20,6 +21,11 @@ const startBookingExpirationJob = require("./jobs/bookingExpiration.job");
 const startPaymentReleaseJob = require("./jobs/paymentRelease.job");
 
 // middlewares
+app.use(cors({
+    origin: ["http://localhost:5173", "http://localhost:5000", "https://stay-nest-front.onrender.com"],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    credentials: true,
+}));
 app.use(limiter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
