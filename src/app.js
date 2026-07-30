@@ -69,6 +69,7 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
     credentials: true,
   },
+  transports: ['websocket'],
 });
 
 // Storage of connected users (UserId -> SocketId)

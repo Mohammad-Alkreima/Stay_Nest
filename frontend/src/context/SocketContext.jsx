@@ -32,7 +32,7 @@ export function SocketProvider({ children }) {
     }
 
     const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || '';
-    const newSocket = io(SOCKET_URL, { path: '/socket.io', withCredentials: true });
+    const newSocket = io(SOCKET_URL, { path: '/socket.io', withCredentials: true, transports: ['websocket'] });
 
     const events = {
       connect: () => newSocket.emit('register', user._id || user.id),
