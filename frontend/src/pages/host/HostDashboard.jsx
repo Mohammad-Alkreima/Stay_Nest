@@ -51,7 +51,7 @@ export default function HostDashboard() {
       {loading ? (
         <Card className="text-center">Loading your host insights…</Card>
       ) : (
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Card>
             <p className="text-sm text-gray-500">Upcoming bookings</p>
             <p className="mt-4 text-3xl font-semibold text-gray-900">{summary.bookings}</p>

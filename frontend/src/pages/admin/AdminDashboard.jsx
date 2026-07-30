@@ -56,7 +56,7 @@ export default function AdminDashboard() {
       {loading ? (
         <Card className="text-center">Loading admin overview…</Card>
       ) : (
-        <div className="grid gap-6 lg:grid-cols-4">
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
           <Card>
             <p className="text-sm text-gray-500">Total bookings</p>
             <p className="mt-4 text-3xl font-semibold text-gray-900">{summary.bookings}</p>

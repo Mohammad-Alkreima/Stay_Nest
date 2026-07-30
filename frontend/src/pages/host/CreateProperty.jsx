@@ -244,7 +244,7 @@ export default function CreateProperty() {
           </div>
 
           {imagePreviews.length > 0 && (
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {imagePreviews.map((preview, index) => (
                 <img key={index} src={preview} alt={`Preview ${index + 1}`} className="h-32 w-full rounded-lg object-cover border" />
               ))}

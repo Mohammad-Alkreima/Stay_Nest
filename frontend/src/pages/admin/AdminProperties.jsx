@@ -67,7 +67,7 @@ export default function AdminProperties() {
       ) : pendingProperties.length === 0 ? (
         <Card className="text-center">There are no pending properties to review right now.</Card>
       ) : (
-        <div className="grid gap-6 xl:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {pendingProperties.map((property) => (
             <Card key={property._id} className="space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">

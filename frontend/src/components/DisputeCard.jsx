@@ -16,7 +16,7 @@ export default function DisputeCard({ dispute, onResolve, onUpdate }) {
             <Badge label={dispute.type === 'guest-to-host' ? 'Guest → Host' : 'Host → Guest'} color="blue" />
           </div>
           <p className="text-sm text-gray-700">{dispute.reason}</p>
-          <div className="grid grid-cols-2 gap-2 mt-3 text-xs text-gray-500">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3 text-xs text-gray-500">
             <p>Reporter: {dispute.reporterId?.name || '—'}</p>
             <p>Target: {dispute.targetId?.name || '—'}</p>
             <p>Date: {format(new Date(dispute.createdAt), 'dd MMM yyyy', { locale: enUS })}</p>

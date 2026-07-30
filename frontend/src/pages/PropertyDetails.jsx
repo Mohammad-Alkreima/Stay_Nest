@@ -142,10 +142,10 @@ export default function PropertyDetails() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
-      <div className="grid gap-6 lg:grid-cols-[1.5fr_0.9fr]">
+      <div className="grid gap-6 lg:grid-cols-[1.5fr_0.9fr] xl:grid-cols-[1.5fr_0.8fr]">
         <div>
           <div className="overflow-hidden rounded-3xl shadow-sm border border-gray-200">
-            <img src={image} alt={property.title} className="w-full h-[420px] object-cover" />
+            <img src={image} alt={property.title} className="w-full h-64 sm:h-80 lg:h-[420px] object-cover" />
           </div>
 
           <div className="mt-6 space-y-4">

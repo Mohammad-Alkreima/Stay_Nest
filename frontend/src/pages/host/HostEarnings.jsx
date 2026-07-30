@@ -46,7 +46,7 @@ export default function HostEarnings() {
       {loading ? (
         <Card className="text-center">Loading earnings summary…</Card>
       ) : (
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Card>
             <p className="text-sm text-gray-500">Completed bookings</p>
             <p className="mt-4 text-3xl font-semibold text-gray-900">{data?.summary?.totalBookings ?? 0}</p>
@@ -67,7 +67,7 @@ export default function HostEarnings() {
           <h2 className="text-lg font-semibold text-gray-900">Monthly breakdown</h2>
           <div className="mt-4 space-y-4">
             {data.monthlyBreakdown.map((month) => (
-              <div key={`${month.year}-${month.month}`} className="grid grid-cols-2 gap-4 rounded-2xl border border-gray-200 p-4">
+              <div key={`${month.year}-${month.month}`} className="grid grid-cols-2 sm:grid-cols-4 gap-4 rounded-2xl border border-gray-200 p-4">
                 <div>
                   <p className="text-sm text-gray-500">Period</p>
                   <p className="font-medium text-gray-900">{month.year} / {month.month}</p>

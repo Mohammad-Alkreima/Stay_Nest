@@ -98,7 +98,7 @@ export default function Layout() {
                       )}
                     </button>
                     {showNotifs && (
-                      <div className="absolute left-0 mt-2 w-80 bg-white rounded-xl shadow-lg border z-50 max-h-96 overflow-y-auto">
+                      <div className="absolute right-0 sm:left-0 mt-2 w-72 sm:w-80 bg-white rounded-xl shadow-lg border z-50 max-h-96 overflow-y-auto">
                         <div className="p-3 border-b font-medium text-sm">Notifications</div>
                         {notifications.length === 0 ? (
                           <p className="p-4 text-sm text-gray-500 text-center">No notifications yet.</p>
