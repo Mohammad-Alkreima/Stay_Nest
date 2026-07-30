@@ -19,6 +19,9 @@ const startBookingExpirationJob = require("./jobs/bookingExpiration.job");
 
 const startPaymentReleaseJob = require("./jobs/paymentRelease.job");
 
+// trust proxy (Render, reverse proxy)
+app.set('trust proxy', 1);
+
 // middlewares
 app.use((req, res, next) => {
     const allowedOrigins = ["https://stay-nest-front.onrender.com"];
