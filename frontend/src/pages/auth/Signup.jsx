@@ -18,8 +18,8 @@ export default function Signup() {
     setLoading(true);
     try {
       const role = form.role || 'guest';
-      const profile = await signup({ ...form, role });
-      navigate(profile.role === 'host' ? '/host' : '/', { replace: true });
+      await signup({ ...form, role });
+      navigate('/login', { replace: true });
     } catch (err) {
       setError(err.message);
     } finally {

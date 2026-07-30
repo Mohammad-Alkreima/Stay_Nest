@@ -32,10 +32,7 @@ export function AuthProvider({ children }) {
   };
 
   const signup = async (data) => {
-    const response = await authApi.signup(data);
-    const profile = response.user || response;
-    setUser(profile);
-    return profile;
+    await authApi.signup(data);
   };
 
   const logout = async () => {
