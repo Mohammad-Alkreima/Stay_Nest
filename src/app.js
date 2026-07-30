@@ -21,7 +21,7 @@ const startPaymentReleaseJob = require("./jobs/paymentRelease.job");
 
 // middlewares
 app.use((req, res, next) => {
-    const allowedOrigins = ["http://localhost:5173", "http://localhost:5000", "https://stay-nest-front.onrender.com"];
+    const allowedOrigins = ["https://stay-nest-front.onrender.com"];
     const origin = req.headers.origin;
     if (allowedOrigins.includes(origin)) {
         res.setHeader("Access-Control-Allow-Origin", origin);
@@ -62,7 +62,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "http://localhost:5000", "https://stay-nest-front.onrender.com"],
+    origin: ["https://stay-nest-front.onrender.com"],
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -108,7 +108,7 @@ mongoose
 
     server.listen(PORT, () => {
       console.log("Connected to MongoDB");
-      console.log(`Server Is Running on http://localhost:${PORT}`);
+      console.log(`Server Is Running on https://stay-nest-1.onrender.com`);
     });
   })
   .catch((err) => {
