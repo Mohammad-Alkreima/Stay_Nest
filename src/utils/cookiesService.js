@@ -24,3 +24,5 @@ class CookiesService {
         res.clearCookie("refreshToken", { secure: isProduction, sameSite: isProduction ? "none" : "lax" });
     }
 }
+
+module.exports = new CookiesService();
